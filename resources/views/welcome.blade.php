@@ -9,7 +9,7 @@
 <div class="container">
     <div class="card bg-light mt-3">
         <div class="card-header">
-            Выберите файл для импорта
+            Импорт CSV-файлов
         </div>
         <div class="card-body">
             <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">

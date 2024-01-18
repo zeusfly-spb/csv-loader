@@ -17,7 +17,4 @@ use App\Http\Controllers\ImportController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::controller(ImportController::class)->group(function(){
-    Route::post('import', 'import')->name('import');
-});
+Route::post('import', [ImportController::class, 'import'])->name('import');

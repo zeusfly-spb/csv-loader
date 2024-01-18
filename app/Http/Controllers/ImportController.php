@@ -21,7 +21,23 @@ class ImportController extends Controller
      */
     public function import(Request $request)
     {
-        $this->excel->import(new ImportProducts, $request->file('file'));
+        if ($request->hasFile('file')) {
+            $this->excel->import(new ImportProducts, $request->file('file'));
+        }
         return back();
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function getByApi(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $this->excel->import(new ImportProducts, $request->file('file'));
+            return 'Файл получен и обработан';
+        } else {
+            return 'Не найден файл';
+        }
     }
 }
