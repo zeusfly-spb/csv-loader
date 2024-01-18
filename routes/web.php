@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(ExportController::class)->group(function(){
-    Route::get('products', 'index');
-    Route::get('products-export', 'export')->name('products.export');
-    Route::post('products-import', 'import')->name('products.import');
+Route::controller(ImportController::class)->group(function(){
+    Route::post('import', 'import')->name('import');
 });
